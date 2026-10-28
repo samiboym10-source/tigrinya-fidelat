@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ti">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ንጽሓፍ ትግርኛ</title>
+<style>
+:root{--bg:#fff8ec;--ink:#3b3350;--mut:#8a8199;--card:#fff;--ln:#eadfca;--sh:0 4px 14px rgba(90,65,30,.13)}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:17px/1.45 "Nunito","Quicksand",system-ui,-apple-system,sans-serif;-webkit-tap-highlight-color:transparent;overscroll-behavior:none}
+#app{max-width:560px;margin:0 auto;padding:calc(12px + env(safe-area-inset-top,0px)) 16px calc(30px + env(safe-area-inset-bottom,0px))}
+.g,.tile,.gbtn,.gl text,.wt{font-family:"Noto Sans Ethiopic","Abyssinica SIL","Nyala","Kefa","Ebrima",sans-serif}
+h1{margin:0;font-size:26px}.hd{display:flex;align-items:center;gap:10px;justify-content:center;margin:6px 0 14px}
+.mas{font-size:54px;display:inline-block;animation:bob 2.4s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-6px)}}
+.sub{color:var(--mut);font-size:14px}.emp{text-align:center;padding:40px 10px;font-size:19px}
+button{font:inherit;cursor:pointer}
+.big{display:block;margin:12px auto;border:0;background:#7eb6f0;color:#fff;font-size:26px;font-weight:800;padding:14px 38px;border-radius:99px;box-shadow:var(--sh)}
+.big:disabled{opacity:.35}.big.s{font-size:17px;padding:10px 20px;display:inline-block;margin:6px 4px}
+.ic{border:0;background:var(--card);box-shadow:var(--sh);border-radius:50%;width:46px;height:46px;font-size:20px;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(76px,1fr));gap:10px;margin:16px 0}
+.tile{position:relative;border:0;border-radius:20px;background:var(--card);box-shadow:var(--sh);height:78px;font-size:40px;color:var(--k);padding:0}
+.tile small{position:absolute;right:6px;bottom:2px;font-size:13px}.tile.lk{opacity:.4;font-size:26px}.tile.cu{outline:4px solid var(--k);animation:pl 1.6s infinite}.tile.dn{background:color-mix(in srgb,var(--k) 12%,#fff)}
+@keyframes pl{50%{transform:scale(1.06)}}
+.ft{display:flex;justify-content:center;gap:12px;margin-top:20px}.ft button,.pill{border:1px solid var(--ln);background:var(--card);border-radius:99px;padding:8px 16px;color:var(--mut);font-size:14px}
+.bar{display:flex;align-items:center;gap:14px}.dots{flex:1;display:flex;gap:8px;justify-content:center}.dots i{width:14px;height:14px;border-radius:50%;background:var(--ln)}.dots i.on{background:var(--k)}
+.stage{display:flex;align-items:center;justify-content:center;gap:6px;margin:14px 0}
+.gl{width:min(78vw,330px);background:var(--card);border-radius:34px;box-shadow:var(--sh)}
+.gl .a{fill:none;stroke-width:3;stroke-dasharray:1400;stroke-dashoffset:1400;animation:dr 3.4s ease forwards}.gl .b{opacity:0;animation:fi 1s 3.1s forwards}
+@keyframes dr{to{stroke-dashoffset:0}}@keyframes fi{to{opacity:1}}
+#cv{display:block;margin:12px auto;width:min(82vw,330px);background:var(--card);border-radius:34px;box-shadow:var(--sh);touch-action:none}
+.pb{height:14px;background:var(--ln);border-radius:9px;overflow:hidden;width:min(82vw,330px);margin:0 auto}.pb i{display:block;height:100%;width:0;background:var(--k);transition:width .2s}
+.gbtn{display:block;margin:20px auto 8px;width:min(70vw,260px);height:min(70vw,260px);border:0;border-radius:50%;background:var(--card);box-shadow:var(--sh);font-size:min(46vw,170px);color:var(--k);line-height:1}
+.gbtn:active{transform:scale(.95)}.cen{text-align:center}
+.wc{background:var(--card);border-radius:28px;box-shadow:var(--sh);padding:16px;text-align:center;margin:14px 0}.wc img{width:min(60vw,240px);height:min(60vw,240px);object-fit:cover;border-radius:22px}
+.wt{font-size:54px;letter-spacing:4px;font-weight:600}.wt b{color:var(--k);font-weight:800}
+.tiles{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:12px 0}.tiles .tile{width:64px;height:64px;font-size:34px}
+.slots{display:flex;gap:8px;justify-content:center;min-height:76px;margin:10px 0}.slots span{width:62px;height:70px;border:3px dashed var(--ln);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:38px;font-family:inherit}
+.star{font-size:64px;display:inline-block;animation:pop .6s both}.star:nth-child(2){animation-delay:.25s}.star:nth-child(3){animation-delay:.5s}@keyframes pop{from{transform:scale(0) rotate(-40deg)}}
+.stk{font-size:96px;animation:bob 2s infinite}
+.seven{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}.seven+.seven{margin-top:10px}
+.seven .tile{width:100%;height:auto;aspect-ratio:1;font-size:clamp(20px,7.4vw,38px);border-radius:14px}.seven .tile.lk{font-size:clamp(14px,4.5vw,22px)}.seven .tile small{font-size:10px;right:3px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}.opts .tile{width:100%;height:auto;aspect-ratio:1.25;font-size:clamp(40px,15vw,68px)}.opts .wopt{aspect-ratio:auto;padding:16px 8px;font-size:clamp(28px,9vw,42px)}
+.tile.ph{background:transparent;box-shadow:none;border:2px dashed var(--ln);opacity:.55;pointer-events:none}.pairs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}.pairs .tile{width:100%;height:auto;aspect-ratio:1;font-size:clamp(36px,12vw,56px)}
+.tile.bad{opacity:.3;background:#fde5e3}.fb{text-align:center;font-size:22px;font-weight:800;min-height:34px;margin-top:10px}.fb.ok{color:#4fae5c}.fb.no{color:#e5645b}
+.gh{display:flex;align-items:center;gap:10px;margin:14px 0 4px}.gh .g{font-size:28px}
+/* vuxenläge */
+.tabs{display:flex;gap:8px;margin:10px 0}.tabs button{flex:1;border:1px solid var(--ln);background:var(--card);border-radius:12px;padding:9px;font-weight:700;color:var(--mut)}.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pan{background:var(--card);border-radius:16px;padding:14px;margin:12px 0;box-shadow:var(--sh)}.pan h3{margin:0 0 6px;font-size:17px}
+.li{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 0;border-bottom:1px solid var(--ln)}.li:last-child{border:0}
+.li .g{font-size:34px;width:46px;text-align:center}
+.pal{display:flex;gap:4px}.pal i{width:22px;height:22px;border-radius:50%;cursor:pointer;border:3px solid transparent}.pal i.on{border-color:var(--ink)}
+.sm{border:1px solid var(--ln);background:#fff;border-radius:10px;padding:5px 10px;font-size:14px;color:var(--ink)}.sm.r{background:#e5645b;color:#fff;border-color:#e5645b}
+.rw{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}.rw .hdr{width:100%;font-weight:700;margin-top:6px}
+.fam{border-bottom:1px solid var(--ln);padding:10px 0}.fam:last-child{border:0}.fh{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px}.fh .g{font-size:32px}.fh .pal{margin-left:auto}
+.seven .ch{width:100%;height:auto;aspect-ratio:1;font-size:clamp(18px,6vw,26px);padding:0}
+.ch{width:44px;height:44px;border:2px solid var(--ln);border-radius:12px;background:#fff;font-size:24px;padding:0;color:var(--ink)}.ch.on{background:var(--k);border-color:var(--k);color:#fff}
+input[type=text],input[type=password]{width:100%;font:inherit;padding:11px 12px;border:1px solid var(--ln);border-radius:12px;background:#fff;color:var(--ink)}
+.th{width:54px;height:54px;object-fit:cover;border-radius:10px}.er{color:#e5645b;font-size:14px}
+.ov{position:fixed;inset:0;background:rgba(40,30,60,.55);display:flex;align-items:center;justify-content:center;z-index:50;padding:20px}.md{background:#fff;border-radius:22px;padding:22px;width:100%;max-width:320px;text-align:center}.md input{margin:12px 0}
+.rec{background:#e5645b!important;color:#fff!important}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+var PAL=['#e5645b','#ee8a3a','#e0b020','#4fae5c','#2fb3a3','#4a8fe0','#8a6fd0','#e0679f'];
+var FNT="'Noto Sans Ethiopic','Abyssinica SIL','Nyala','Kefa','Ebrima',sans-serif";
+var PIN='kidusmikael12';
+var NM='hä lä ḥä mä rä bä vä sä šä qä qhä tä čä nä ñä ʾä kä ḵä wä ʿä zä žä yä dä ǧä gä ṭä č̣ä ṣä p̣ä fä pä'.split(' ');
+var RW=('ሀሁሂሃሄህሆ ለሉሊላሌልሎ ሐሑሒሓሔሕሖ መሙሚማሜምሞ ረሩሪራሬርሮ በቡቢባቤብቦ ቨቩቪቫቬቭቮ ሰሱሲሳሴስሶ ሸሹሺሻሼሽሾ ቀቁቂቃቄቅቆ ቐቑቒቓቔቕቖ ተቱቲታቴትቶ ቸቹቺቻቼችቾ ነኑኒናኔንኖ ኘኙኚኛኜኝኞ አኡኢኣኤእኦ ከኩኪካኬክኮ ኸኹኺኻኼኽኾ ወዉዊዋዌውዎ ዐዑዒዓዔዕዖ ዘዙዚዛዜዝዞ ዠዡዢዣዤዥዦ የዩዪያዬይዮ ደዱዲዳዴድዶ ጀጁጂጃጄጅጆ ገጉጊጋጌግጎ ጠጡጢጣጤጥጦ ጨጩጪጫጬጭጮ ጸጹጺጻጼጽጾ ጰጱጲጳጴጵጶ ፈፉፊፋፌፍፎ ፐፑፒፓፔፕፖ').split(' ').map(function(r){return Array.from(r)});
+var STK=['🌟','🦒','🐘','🌈','🍀','🎈','🐝','🌻'];
+var C=null,P={done:{}},V='home',ST=1,CUR='',AT='c',WI=0,BG=[],TRD=false,EDIT={t:'',img:'',aud:''},MR=null,MK='';
+try{P=JSON.parse(localStorage.getItem('ge_p'))||P}catch(e){}
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function sp(){try{localStorage.setItem('ge_p',JSON.stringify(P))}catch(e){}}
+function rowOf(c){for(var i=0;i<RW.length;i++)if(RW[i].indexOf(c)>-1)return i;return-1}
+function col(c){var r=rowOf(c),i=r<0?null:C.rc[r];return PAL[i==null?(r<0?5:r%8):i]}
+function gc(t){return Array.from(t||'').filter(function(x){return/[\u1200-\u137F]/.test(x)})}
+function play(u){if(u)try{new Audio(u).play()}catch(e){}}
+function idb(m,v){return new Promise(function(r,j){var o=indexedDB.open('ge',1);o.onupgradeneeded=function(){o.result.createObjectStore('s')};o.onsuccess=function(){var s=o.result.transaction('s',m==='get'?'readonly':'readwrite').objectStore('s'),x=m==='get'?s.get('c'):s.put(v,'c');x.onsuccess=function(){r(x.result)};x.onerror=j};o.onerror=j})}
+function sv(){C.v=Date.now();idb('set',C).catch(function(){})}
+function isOpen(){return C.open!==false}
+function cidx(){for(var i=0;i<C.sel.length;i++)if(!P.done[C.sel[i]])return i;return C.sel.length}
+
+/* ---------- Barnets vyer ---------- */
+function fam1(r,ch,fn){return'<div class="seven">'+RW[r].map(function(c){return ch.indexOf(c)>-1?fn(c):'<span class="tile ph"></span>'}).join('')+'</div>'}
+function fam7(ch,fn){var rs=[];ch.forEach(function(c){var r=rowOf(c);if(r>-1&&rs.indexOf(r)<0)rs.push(r)});return rs.map(function(r){return fam1(r,ch,fn)}).join('')}
+function foot(){return'<div class="ft"><button onclick="V=\'ov\';draw()">📖 Översikt</button><button onclick="lock()">🔒</button></div>'}
+function home(){
+  var ci=cidx(),h='<div class="hd"><span class="mas">🦁</span><h1>ንጽሓፍ ትግርኛ</h1></div>';
+  if(!C.sel.length)return h+'<div class="emp">🌱<br>Den vuxne har inte valt några tecken än.<br><span class="sub">ገና ፊደላት ኣይተመርጹን</span></div>'+foot();
+  var rs=[];C.sel.forEach(function(c){var r=rowOf(c);if(r>-1&&rs.indexOf(r)<0)rs.push(r)});
+  return h+'<div class="cen"><button class="big s" style="font-size:26px;padding:14px 34px" onclick="go()">'+(ci<C.sel.length?'ጀምር ▶':'🎉')+'</button> <button class="big s" style="background:#e0b020;font-size:22px" onclick="qStart()"'+(pool(-1).length<2?' disabled':'')+'>🎯 ልምምድ</button></div><div style="margin-top:14px">'+
+  rs.map(function(r){var ch=C.sel.filter(function(c){return rowOf(c)===r});
+    return'<div class="gh"><span class="g" style="color:'+col(ch[0])+'">'+esc(RW[r][0])+'</span><button class="sm" data-r="'+r+'" onclick="qStart(+this.dataset.r)"'+(pool(r).length<2?' disabled':'')+'>🎯 ልምምድ</button></div>'+
+    fam1(r,ch,function(c){var i=C.sel.indexOf(c),d=P.done[c],lk=!isOpen()&&!d&&i>ci;
+      return'<button class="tile '+(d?'dn':i===ci?'cu':lk?'lk':'')+'" style="--k:'+col(c)+'" data-i="'+i+'" onclick="pick(+this.dataset.i)">'+(lk?'🔒':esc(c))+(d?'<small>⭐</small>':'')+'</button>'})}).join('')+'</div>'+foot();
+}
+function go(){var i=cidx();if(i<C.sel.length)start(C.sel[i])}
+function pick(i){var c=C.sel[i];if(isOpen()||P.done[c]||i<=cidx())start(c)}
+function start(c){CUR=c;ST=1;WI=0;BG=[];TRD=false;V='learn';draw()}
+function learn(){
+  var c=CUR,k=col(c),h='<div class="bar" style="--k:'+k+'"><button class="ic" onclick="V=\'home\';draw()" aria-label="ተመለስ">←</button><div class="dots">'+[1,2,3,4,5].map(function(i){return'<i class="'+(i<=ST?'on':'')+'"></i>'}).join('')+'</div></div><div style="--k:'+k+'">';
+  if(ST===1)h+='<div class="stage"><span class="mas">🦁</span></div><svg class="gl" viewBox="0 0 300 300"><text class="a" x="150" y="215" text-anchor="middle" font-size="220" stroke="'+k+'">'+esc(c)+'</text><text class="b" x="150" y="215" text-anchor="middle" font-size="220" fill="'+k+'">'+esc(c)+'</text></svg><div class="cen"><button class="ic" onclick="draw()" aria-label="Igen">↻</button></div>';
+  if(ST===2)h+='<canvas id="cv" width="300" height="300"></canvas><div class="pb"><i id="pg"></i></div><div class="cen sub" style="margin-top:8px">☝️ ✍️</div>';
+  if(ST===3)h+='<button class="gbtn" onclick="play(C.aud[CUR])">'+esc(c)+'</button><div class="cen">🔊 👆</div>'+(C.aud[c]?'':'<div class="cen sub">🔇 ድምጺ ገና የለን</div>');
+  if(ST===4)h+=step4();
+  if(ST===5)h+='<div class="cen" style="margin-top:20px"><div><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span></div><div class="stk">'+STK[C.sel.indexOf(c)%8]+'</div><h1 style="color:'+k+'">ጽቡቕ!</h1></div>';
+  return h+'<button class="big" id="nb" onclick="nxt()"'+(ST===2&&!TRD?' disabled':'')+'>'+(ST===5?'ቀጽል ▶':'▶')+'</button></div>';
+}
+function known(){return Object.keys(P.done).concat([CUR])}
+function step4(){
+  var c=CUR,kn=known(),ws=C.words.filter(function(w){var g=gc(w.t);return g.indexOf(c)>-1&&g.every(function(x){return kn.indexOf(x)>-1})});
+  if(ws.length){var w=ws[WI%ws.length];
+    return'<div class="wc">'+(w.img?'<img src="'+w.img+'" alt="">':'')+'<div class="wt">'+Array.from(w.t).map(function(x){return x===c?'<b>'+esc(x)+'</b>':esc(x)}).join('')+'</div><button class="ic" onclick="play(wordAt().aud)" aria-label="🔊">🔊</button>'+(ws.length>1?' <button class="ic" onclick="WI++;draw()">▶▶</button>':'')+'</div>';
+  }
+  return'<div class="cen sub" style="margin-top:12px">🧩</div><div class="slots">'+BG.map(function(x){return'<span style="color:'+col(x)+'">'+esc(x)+'</span>'}).join('')+'</div>'+fam7(kn,function(x){return'<button class="tile" style="--k:'+col(x)+'" data-c="'+esc(x)+'" onclick="if(BG.length<5)BG.push(this.dataset.c);draw()">'+esc(x)+'</button>'})+'<div class="cen"><button class="ic" onclick="BG=[];draw()">✕</button></div>';
+}
+function wordAt(){var c=CUR,kn=known();var ws=C.words.filter(function(w){var g=gc(w.t);return g.indexOf(c)>-1&&g.every(function(x){return kn.indexOf(x)>-1})});return ws[WI%ws.length]}
+function nxt(){
+  if(ST<5){ST++;WI=0;BG=[];TRD=false;if(ST===5){P.done[CUR]=3;sp()}draw();return}
+  var i=C.sel.indexOf(CUR)+1;if(i<C.sel.length&&!P.done[C.sel[i]])start(C.sel[i]);else{V='home';draw()}
+}
+function setupTrace(){
+  var cv=$('cv'),x=cv.getContext('2d'),k=col(CUR),S=300,m=document.createElement('canvas');m.width=m.height=S;
+  var mx=m.getContext('2d');mx.font='220px '+FNT;mx.textAlign='center';mx.fillText(CUR,150,215);
+  var d=mx.getImageData(0,0,S,S).data,pts=[],cov=0;
+  for(var y=0;y<S;y+=5)for(var xx=0;xx<S;xx+=5)if(d[(y*S+xx)*4+3]>128)pts.push([xx,y,0]);
+  x.font=mx.font;x.textAlign='center';x.fillStyle=k+'38';x.fillText(CUR,150,215);
+  x.strokeStyle=k;x.fillStyle=k;x.lineWidth=26;x.lineCap='round';x.lineJoin='round';
+  var dn=false,lx=0,ly=0;
+  function pos(e){var r=cv.getBoundingClientRect();return[(e.clientX-r.left)*S/r.width,(e.clientY-r.top)*S/r.height]}
+  function hit(a,b){pts.forEach(function(p){if(!p[2]&&Math.abs(p[0]-a)<16&&Math.abs(p[1]-b)<16){p[2]=1;cov++}});
+    var f=cov/pts.length;$('pg').style.width=Math.min(100,f/.72*100)+'%';if(f>=.72&&!TRD){TRD=true;var n=$('nb');if(n)n.disabled=false;if(TRCB){var cb=TRCB;TRCB=null;cb()}}}
+  cv.onpointerdown=function(e){dn=true;var p=pos(e);lx=p[0];ly=p[1];x.beginPath();x.arc(lx,ly,13,0,7);x.fill();hit(lx,ly);cv.setPointerCapture(e.pointerId)};
+  cv.onpointermove=function(e){if(!dn)return;var p=pos(e);x.beginPath();x.moveTo(lx,ly);x.lineTo(p[0],p[1]);x.stroke();
+    var n=Math.ceil(Math.hypot(p[0]-lx,p[1]-ly)/6);for(var i=1;i<=n;i++)hit(lx+(p[0]-lx)*i/n,ly+(p[1]-ly)*i/n);lx=p[0];ly=p[1]};
+  cv.onpointerup=cv.onpointercancel=function(){dn=false};
+}
+function ov(){
+  var h='<div class="bar"><button class="ic" onclick="V=\'home\';draw()">←</button><h1 style="flex:1;text-align:center">📖</h1></div><div class="pan"><h3>ፊደላት / Tecken</h3>'+(fam7(C.sel,function(c){return'<span class="tile" style="--k:'+col(c)+';display:flex;align-items:center;justify-content:center">'+esc(c)+'</span>'})||'—')+'</div><div class="pan"><h3>ቃላት / Ord</h3>';
+  h+=C.words.map(function(w){return'<div class="li">'+(w.img?'<img class="th" src="'+w.img+'" alt="">':'')+'<span class="g" style="width:auto;font-size:28px">'+esc(w.t)+'</span></div>'}).join('')||'—';
+  return h+'</div>';
+}
+
+/* ---------- Vuxenläge ---------- */
+function lock(){
+  var d=document.createElement('div');d.className='ov';
+  d.innerHTML='<div class="md"><div style="font-size:44px">🔒</div><input id="pn" type="password" placeholder="Kod"><button class="big s" id="po">OK</button><button class="big s" id="pc" style="background:#bbb">✕</button><div class="er" id="pe"></div></div>';
+  document.body.appendChild(d);var go2=function(){if($('pn').value===PIN){d.remove();V='adult';AT='c';draw()}else $('pe').textContent='Fel kod'};
+  $('po').onclick=go2;$('pn').onkeydown=function(e){if(e.key==='Enter')go2()};$('pc').onclick=function(){d.remove()};$('pn').focus();
+}
+function adult(){
+  var T=[['c','ፊደላት Tecken'],['w','ቃላት Ord'],['s','Spara']];
+  return'<div class="bar"><button class="ic" onclick="V=\'home\';draw()" aria-label="Lås">🔒</button><div class="tabs" style="flex:1">'+T.map(function(t){return'<button class="'+(AT===t[0]?'on':'')+'" data-t="'+t[0]+'" onclick="AT=this.dataset.t;draw()">'+t[1]+'</button>'}).join('')+'</div></div>'+(AT==='c'?aC():AT==='w'?aW():aS());
+}
+function aC(){
+  var h='<div class="pan"><h3>Valda tecken ('+C.sel.length+')</h3><div class="sub">Ordningen här är ordningen barnet lär sig dem.</div>';
+  C.sel.forEach(function(c,i){
+    h+='<div class="li"><span class="g" style="color:'+col(c)+'">'+esc(c)+'</span><span><button class="sm" data-i="'+i+'" onclick="mv(+this.dataset.i,-1)">▲</button> <button class="sm" data-i="'+i+'" onclick="mv(+this.dataset.i,1)">▼</button> <button class="sm" data-c="'+esc(c)+'" onclick="tog(this.dataset.c)">✕</button></span>'+aud('c:'+c,C.aud[c])+'</div>'});
+  if(!C.sel.length)h+='<div class="sub" style="margin-top:6px">Inga tecken valda än. Välj nedan.</div>';
+  h+='</div><div class="pan"><h3>Välj tecken</h3><div class="sub">Varje bokstav har 7 former och en egen färg. Tryck på en form, eller på Hela raden. Ge liknande bokstäver olika färger.</div>';
+  RW.forEach(function(r,i){var ci=C.rc[i]==null?i%8:C.rc[i];
+    h+='<div class="fam"><div class="fh"><span class="g" style="color:'+PAL[ci]+'">'+esc(r[0])+'</span><span class="sub">'+esc(NM[i])+'</span><div class="pal">'+PAL.map(function(pc,j){return'<i class="'+(j===ci?'on':'')+'" style="background:'+pc+'" data-r="'+i+'" data-j="'+j+'" onclick="setCol(this)"></i>'}).join('')+'</div><button class="sm" data-i="'+i+'" onclick="row(+this.dataset.i)">Hela raden</button></div><div class="seven">'+
+    r.map(function(c){var on=C.sel.indexOf(c)>-1;return'<button class="ch'+(on?' on':'')+'" style="--k:'+PAL[ci]+'" data-c="'+esc(c)+'" onclick="tog(this.dataset.c)">'+esc(c)+'</button>'}).join('')+'</div></div>'});
+  return h+'</div>';
+}
+function aud(k,u){return'<span style="margin-left:auto"><button class="sm'+(MR&&MK===k?' rec':'')+'" data-k="'+esc(k)+'" onclick="rec(this.dataset.k)">'+(MR&&MK===k?'⏹':'🎤')+'</button> <label class="sm">📁<input type="file" accept="audio/*" hidden data-k="'+esc(k)+'" onchange="upA(this)"></label>'+(u?' <button class="sm" data-k="'+esc(k)+'" onclick="play(getA(this.dataset.k))">▶</button> <button class="sm" data-k="'+esc(k)+'" onclick="setAud(this.dataset.k,\'\')">🗑</button>':'')+'</span>'}
+function getA(k){return k[0]==='c'?C.aud[k.slice(2)]:EDIT.aud}
+function setAud(k,u){if(k[0]==='c'){if(u)C.aud[k.slice(2)]=u;else delete C.aud[k.slice(2)];sv()}else EDIT.aud=u;draw()}
+function upA(el){var f=el.files[0];if(!f)return;var r=new FileReader(),k=el.dataset.k;r.onload=function(){setAud(k,r.result)};r.readAsDataURL(f)}
+function rec(k){
+  if(MR){MR.stop();return}
+  if(!navigator.mediaDevices||!window.MediaRecorder){alert('Inspelning stöds inte här. Använd 📁 för att ladda upp en ljudfil.');return}
+  navigator.mediaDevices.getUserMedia({audio:true}).then(function(st){var ch=[],m=new MediaRecorder(st);MR=m;MK=k;
+    m.ondataavailable=function(e){ch.push(e.data)};
+    m.onstop=function(){st.getTracks().forEach(function(t){t.stop()});MR=null;var r=new FileReader();r.onload=function(){setAud(k,r.result)};r.readAsDataURL(new Blob(ch,{type:m.mimeType}))};
+    m.start();draw()}).catch(function(){alert('Mikrofonen är blockerad. Tillåt mikrofon eller använd 📁.')});
+}
+function setCol(el){C.rc[+el.dataset.r]=+el.dataset.j;sv();draw()}
+function tog(c){var i=C.sel.indexOf(c);if(i>-1)C.sel.splice(i,1);else C.sel.push(c);sv();draw()}
+function row(i){var r=RW[i],all=r.every(function(c){return C.sel.indexOf(c)>-1});r.forEach(function(c){var j=C.sel.indexOf(c);if(all){if(j>-1)C.sel.splice(j,1)}else if(j<0)C.sel.push(c)});sv();draw()}
+function mv(i,d){var j=i+d;if(j<0||j>=C.sel.length)return;var t=C.sel[i];C.sel[i]=C.sel[j];C.sel[j]=t;sv();draw()}
+function chips(){return gc(EDIT.t).map(function(c){var on=C.sel.indexOf(c)>-1;return'<span class="pill" style="'+(on?'color:'+col(c)+';border-color:'+col(c):'')+'"><span class="g">'+esc(c)+'</span>'+(on?'':' ej vald')+'</span>'}).join(' ')||'<span class="sub">Skriv ett ord ovan</span>'}
+function aW(){
+  var h='<div class="pan"><h3>'+(EDIT.id?'Ändra ord':'Nytt ord')+'</h3><input type="text" class="g" value="'+esc(EDIT.t)+'" placeholder="ቃል ጽሓፍ" oninput="EDIT.t=this.value;$(\'chs\').innerHTML=chips()" style="font-size:24px"><div class="sub" style="margin-top:8px">Tecken i ordet hittas automatiskt. Kolla att de stämmer:</div><div class="rw" id="chs">'+chips()+'</div>'+
+  '<div class="li">'+(EDIT.img?'<img class="th" src="'+EDIT.img+'" alt="">':'<span class="sub">Ingen bild</span>')+'<label class="sm">🖼 Ladda upp bild<input type="file" accept="image/*" hidden onchange="upI(this)"></label>'+(EDIT.img?'<button class="sm" onclick="EDIT.img=\'\';draw()">🗑</button>':'')+'</div>'+
+  '<div class="li"><span class="sub">Ljud (valfritt)</span>'+aud('w:x',EDIT.aud)+'</div><div style="margin-top:10px"><button class="big s" onclick="saveW()">Spara ordet</button>'+(EDIT.id?'<button class="big s" style="background:#bbb" onclick="EDIT={t:\'\',img:\'\',aud:\'\'};draw()">Avbryt</button>':'')+'</div></div><div class="pan"><h3>Ordbank ('+C.words.length+')</h3>';
+  C.words.forEach(function(w,i){var g=gc(w.t),miss=g.filter(function(c){return C.sel.indexOf(c)<0});
+    h+='<div class="li">'+(w.img?'<img class="th" src="'+w.img+'" alt="">':'')+'<span class="g" style="width:auto;font-size:28px">'+esc(w.t)+'</span><span class="sub">'+(miss.length?'Saknar: '+esc(miss.join(' ')):'Redo')+'</span><span style="margin-left:auto"><button class="sm" data-i="'+i+'" onclick="editW(+this.dataset.i)">✏️</button> <button class="sm" data-i="'+i+'" onclick="delW(+this.dataset.i)">🗑</button></span></div>'});
+  if(!C.words.length)h+='<div class="sub">Inga ord än.</div>';
+  return h+'</div>';
+}
+function upI(el){var f=el.files[0];if(!f)return;var r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var s=Math.min(1,520/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*s;c.height=im.height*s;c.getContext('2d').drawImage(im,0,0,c.width,c.height);EDIT.img=c.toDataURL('image/jpeg',.82);draw()};im.src=r.result};r.readAsDataURL(f)}
+function saveW(){
+  var t=EDIT.t.trim();if(!gc(t).length){alert('Skriv ett ord med Ge\u2019ez-tecken.');return}
+  var w={id:EDIT.id||Date.now().toString(36),t:t,img:EDIT.img,aud:EDIT.aud},i=C.words.map(function(x){return x.id}).indexOf(w.id);
+  if(i>-1)C.words[i]=w;else C.words.push(w);EDIT={t:'',img:'',aud:''};sv();draw();
+}
+function editW(i){var w=C.words[i];EDIT={id:w.id,t:w.t,img:w.img,aud:w.aud};draw();window.scrollTo(0,0)}
+function delW(i){if(confirm('Ta bort ordet "'+C.words[i].t+'"?')){C.words.splice(i,1);sv();draw()}}
+function aS(){
+  return'<div class="pan"><h3>Lås</h3><label class="li" style="border:0"><input type="checkbox" style="width:24px;height:24px" '+(isOpen()?'checked':'')+' onchange="C.open=this.checked;sv();draw()"><span>Öppna alla valda tecken och övningar för barnet (inga lås)</span></label><div class="sub">Av: barnet måste lära sig tecknen i ordning, och övningar öppnas för inlärda tecken.</div></div><div class="pan"><h3>Publicera till föräldrarna</h3><div class="sub">Allt du lagt in sparas på den här enheten. För att föräldrarna ska se det: tryck Exportera, och lägg filen <b>innehall.json</b> bredvid <b>index.html</b> på GitHub. Appen läser filen automatiskt. Föräldrar kan bara titta, inte ändra något för andra.</div><button class="big s" onclick="expo()">⬇ Exportera innehall.json</button></div>'+
+  '<div class="pan"><h3>Importera</h3><label class="big s" style="background:#8a6fd0">⬆ Välj fil<input type="file" accept=".json" hidden onchange="impo(this)"></label><div class="sub" id="im"></div></div>'+
+  '<div class="pan"><h3>Barnets framsteg</h3><button class="sm r" onclick="if(confirm(\'Nollställ framsteg?\')){P={done:{}};sp();draw()}">Nollställ framsteg</button></div>';
+}
+function expo(){var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(C)],{type:'application/json'}));a.download='innehall.json';document.body.appendChild(a);a.click();a.remove()}
+function impo(el){var f=el.files[0];if(!f)return;var r=new FileReader();r.onload=function(){try{var j=JSON.parse(r.result);if(!j.sel)throw 1;C=j;C.rc=C.rc||{};sv();$('im').textContent='Importerat ✓'}catch(e){$('im').textContent='Filen kunde inte läsas.'}};r.readAsText(f)}
+
+/* ---------- Övningar ---------- */
+var Q=null,TRCB=null;
+function pool(r){r=r==null?-1:r;var p=isOpen()?C.sel.slice():Object.keys(P.done).filter(function(c){return C.sel.indexOf(c)>-1});return r>=0?p.filter(function(c){return rowOf(c)===r}):p}
+function shuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function rnd(a){return a[Math.floor(Math.random()*a.length)]}
+function dis(t,n,pl,ex){var f=pl.filter(function(c){return c!==t&&rowOf(c)===rowOf(t)&&(!ex||ex.indexOf(c)<0)}),o=pl.filter(function(c){return c!==t&&rowOf(c)!==rowOf(t)&&(!ex||ex.indexOf(c)<0)});return shuf(f).concat(shuf(o)).slice(0,n)}
+function okWords(pl){return C.words.filter(function(w){var g=gc(w.t);return g.length>0&&g.every(function(x){return pl.indexOf(x)>-1})})}
+function qMake(r){
+  var pl=pool(r),ws=okWords(pl),wi=ws.filter(function(w){return w.img}),pa=pl.filter(function(c){return C.aud[c]}),wm=ws.filter(function(w){return gc(w.t).length>1}),rows={};
+  pl.forEach(function(c){var k=rowOf(c);(rows[k]=rows[k]||[]).push(c)});
+  var rk=Object.keys(rows),multi=rk.filter(function(k){return rows[k].length>1}),big=rk.filter(function(k){return rows[k].length>2}),ty=['see','trace'];
+  if(pl.length>1)ty.push('odd','pair');if(multi.length&&rk.length>1)ty.push('fam');if(big.length)ty.push('order');
+  if(pa.length)ty.push('hear');if(wi.length>1)ty.push('pic');if(ws.length)ty.push('build');if(wm.length)ty.push('miss');
+  var l=[],bag=[];
+  while(l.length<10){
+    if(!bag.length)bag=shuf(ty);
+    var k=bag.pop(),q={k:k},w,g,c;
+    if(k==='see'){q.a=rnd(pl);q.o=shuf([q.a].concat(dis(q.a,3,pl)))}
+    else if(k==='trace'){q.a=rnd(pl)}
+    else if(k==='odd'){var a=rnd(pl),b=dis(a,1,pl)[0];q.o=shuf([a,a,a,b]);q.ai=q.o.indexOf(b)}
+    else if(k==='pair'){var n=Math.min(3,pl.length),cs=shuf(pl).slice(0,n);q.o=shuf(cs.concat(cs))}
+    else if(k==='fam'){var rr=rnd(multi),ch=rows[rr];q.t=rnd(ch);q.a=rnd(ch.filter(function(x){return x!==q.t}));q.o=shuf([q.a].concat(shuf(pl.filter(function(x){return rowOf(x)!==+rr})).slice(0,3)))}
+    else if(k==='order'){var r2=rnd(big),ar=rows[r2].slice().sort(function(x,y){return RW[r2].indexOf(x)-RW[r2].indexOf(y)}),len=Math.min(5,ar.length),st=Math.floor(Math.random()*(ar.length-len+1));q.a=ar.slice(st,st+len);q.o=shuf(q.a);if(q.o.join('')===q.a.join(''))q.o=q.a.slice().reverse()}
+    else if(k==='hear'){q.a=rnd(pa);q.o=shuf([q.a].concat(dis(q.a,3,pl)))}
+    else if(k==='pic'){w=rnd(wi);q.w=w;q.a=w.t;q.o=shuf([w.t].concat(shuf(ws.filter(function(x){return x!==w})).slice(0,2).map(function(x){return x.t})))}
+    else if(k==='build'){w=rnd(ws);g=gc(w.t);q.w=w;q.a=g;q.o=shuf(g.concat(dis(g[0],2,pl,g)))}
+    else{w=rnd(wm);g=gc(w.t);q.w=w;q.g=g;q.ix=Math.floor(Math.random()*g.length);q.a=g[q.ix];q.o=shuf([q.a].concat(dis(q.a,3,pl)))}
+    l.push(q)}
+  return l;
+}
+function qStart(r){r=r==null?-1:r;if(pool(r).length<2)return;Q={r:r,l:qMake(r),i:0,ok:0,t:0,wr:[],sl:[],fl:[],mt:[],fb:'',lock:0};V='pr';draw()}
+function nq(){if(!Q)return;Q.i++;Q.t=0;Q.wr=[];Q.sl=[];Q.fl=[];Q.mt=[];Q.fb='';Q.lock=0;draw()}
+function qi(i){var q=Q.l[Q.i];if(Q.lock)return;if(i===q.ai){Q.lock=1;if(!Q.t)Q.ok++;Q.fb='ok';draw();setTimeout(nq,800)}else{Q.t++;Q.wr.push(i);Q.fb='no';draw()}}
+function qp(i){var q=Q.l[Q.i];if(Q.lock||Q.fl.indexOf(i)>-1||Q.mt.indexOf(i)>-1)return;Q.fl.push(i);
+  if(Q.fl.length<2){draw();return}
+  var a=Q.fl[0],b=Q.fl[1];
+  if(q.o[a]===q.o[b]){Q.mt.push(a,b);Q.fl=[];if(Q.mt.length===q.o.length){Q.lock=1;if(Q.t<=2)Q.ok++;Q.fb='ok';draw();setTimeout(nq,900)}else draw()}
+  else{Q.t++;Q.lock=1;draw();setTimeout(function(){if(!Q)return;Q.fl=[];Q.lock=0;draw()},750)}}
+function qa(v){var q=Q.l[Q.i];if(Q.lock)return;
+  if(v===q.a){Q.lock=1;if(!Q.t)Q.ok++;Q.fb='ok';draw();setTimeout(nq,800)}else{Q.t++;Q.wr.push(v);Q.fb='no';draw()}}
+function qb(i){var q=Q.l[Q.i];if(Q.lock||Q.sl.indexOf(i)>-1||Q.sl.length>=q.a.length)return;Q.sl.push(i);
+  if(Q.sl.length<q.a.length){draw();return}
+  var good=Q.sl.every(function(ti,n){return q.o[ti]===q.a[n]});
+  if(good){Q.lock=1;if(!Q.t)Q.ok++;Q.fb='ok';draw();setTimeout(nq,800)}
+  else{Q.t++;Q.fb='no';Q.lock=1;draw();setTimeout(function(){if(!Q)return;Q.sl=[];Q.lock=0;Q.fb='';draw()},800)}}
+function qbar(){return'<div class="bar"><button class="ic" onclick="Q=null;V=\'home\';draw()" aria-label="←">←</button><div class="dots">'+Q.l.map(function(x,i){return'<i class="'+(i<=Q.i?'on':'')+'" style="--k:#e0b020"></i>'}).join('')+'</div></div>'}
+function pr(){
+  if(Q.i>=Q.l.length){var s=Q.ok>=9?3:Q.ok>=6?2:1,st='';for(var n=0;n<s;n++)st+='<span class="star">⭐</span>';
+    return qbar()+'<div class="cen" style="margin-top:24px"><div>'+st+'</div><h1>'+Q.ok+' / '+Q.l.length+'</h1><div class="stk">🏆</div><button class="big s" onclick="qStart(Q.r)">🎯</button><button class="big s" style="background:#bbb" onclick="Q=null;V=\'home\';draw()">🏠</button></div>'}
+  var q=Q.l[Q.i],h=qbar()+'<div class="fb '+Q.fb+'">'+(Q.fb==='ok'?'✅ ጽቡቕ!':Q.fb==='no'?'❌ ደጊምካ ፈትን':'')+'</div>';
+  function opts(w){return'<div class="opts">'+q.o.map(function(x){return'<button class="tile'+(w?' wopt':'')+(Q.wr.indexOf(x)>-1?' bad':'')+'" style="--k:'+(w?'#3b3350':col(x))+'" data-v="'+esc(x)+'" onclick="qa(this.dataset.v)">'+esc(x)+'</button>'}).join('')+'</div>'}
+  var img=q.w&&q.w.img?'<div class="wc"><img src="'+q.w.img+'" alt=""></div>':'';
+  if(q.k==='trace')return h+'<canvas id="cv" width="300" height="300"></canvas><div class="pb" style="--k:'+col(q.a)+'"><i id="pg"></i></div><div class="cen sub" style="margin-top:8px">✍️</div>';
+  if(q.k==='odd')return h+'<div class="cen sub">🔍</div><div class="opts">'+q.o.map(function(x,i){return'<button class="tile'+(Q.wr.indexOf(i)>-1?' bad':'')+'" style="--k:'+col(x)+'" data-i="'+i+'" onclick="qi(+this.dataset.i)">'+esc(x)+'</button>'}).join('')+'</div>';
+  if(q.k==='pair')return h+'<div class="cen sub">🃏</div><div class="pairs">'+q.o.map(function(x,i){var mt=Q.mt.indexOf(i)>-1,up=mt||Q.fl.indexOf(i)>-1;return'<button class="tile'+(mt?' dn':'')+'" style="--k:'+(up?col(x):'#8a8199')+'" data-i="'+i+'" onclick="qp(+this.dataset.i)">'+(up?esc(x):'❓')+'</button>'}).join('')+'</div>';
+  if(q.k==='see'||q.k==='fam')return h+'<div class="cen sub">👀</div><div class="cen"><span class="gbtn g" style="--k:'+col(q.t||q.a)+';display:inline-flex;align-items:center;justify-content:center;width:min(46vw,180px);height:min(46vw,180px);font-size:min(28vw,110px);margin:8px">'+esc(q.t||q.a)+'</span></div>'+opts();
+  if(q.k==='hear')return h+'<div class="cen"><button class="gbtn" style="--k:#e0b020;width:min(42vw,160px);height:min(42vw,160px);font-size:min(22vw,84px)" onclick="play(C.aud[Q.l[Q.i].a])" aria-label="🔊">🔊</button></div>'+opts();
+  if(q.k==='pic')return h+img+opts(1);
+  if(q.k==='miss')return h+img+'<div class="wc"><div class="wt">'+q.g.map(function(x,i){return i===q.ix?'<b>◻</b>':esc(x)}).join('')+'</div></div>'+opts();
+  return h+img+'<div class="slots">'+q.a.map(function(x,n){return'<span style="'+(Q.sl[n]!=null?'border-style:solid;color:#3b3350':'')+'">'+(Q.sl[n]!=null?esc(q.o[Q.sl[n]]):'')+'</span>'}).join('')+'</div><div class="tiles">'+q.o.map(function(x,i){return Q.sl.indexOf(i)>-1?'':'<button class="tile" style="--k:'+col(x)+'" data-i="'+i+'" onclick="qb(+this.dataset.i)">'+esc(x)+'</button>'}).join('')+'</div><div class="cen"><button class="ic" onclick="Q.sl=[];draw()">✕</button></div>';
+}
+
+function draw(){
+  if(!C)return;
+  $('app').innerHTML=V==='home'?home():V==='learn'?learn():V==='ov'?ov():V==='pr'&&Q?pr():adult();
+  if(V==='learn'&&ST===2){TRCB=null;setupTrace()}
+  if(V==='pr'&&Q&&Q.i<Q.l.length&&Q.l[Q.i].k==='trace'){CUR=Q.l[Q.i].a;TRD=false;TRCB=function(){if(!Q)return;Q.lock=1;Q.ok++;var f=document.querySelector('.fb');if(f){f.className='fb ok';f.textContent='✅ ጽቡቕ!'}setTimeout(nq,900)};setupTrace()}
+}
+idb('get').catch(function(){}).then(function(c){
+  C=c||{v:0,sel:[],words:[],aud:{}};C.rc=C.rc||{};draw();
+  return fetch('innehall.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():null}).catch(function(){return null});
+}).then(function(j){if(j&&j.sel&&j.v>C.v){C=j;C.rc=C.rc||{};idb('set',C).catch(function(){});V='home';draw()}});
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(function(){});
+</script>
+</body>
+</html>
